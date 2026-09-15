@@ -4,7 +4,7 @@
     "title": "Healthcare Identity Eco Platform",
     "description": "Healthcare Identity knowledge platform powered by Infinigate",
     "owner": "Infinigate Nederland",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "defaultBranch": "main",
     "license": "MIT",
     "visibility": "private"
@@ -34,6 +34,11 @@
       "build",
       "build/config",
       "build/modules",
+      "build/templates",
+      "build/templates/ai",
+      "build/templates/powershell",
+      "build/templates/standards",
+      "build/templates/vscode",
 
       "diagrams",
       "diagrams/drawio",
@@ -132,6 +137,99 @@
       "standards/Markdown-Standards.md",
       "standards/Mermaid-Standards.md",
       "standards/PowerShell-Standards.md"
+    ]
+  },
+
+  "content": {
+    "enabled": true,
+    "overwriteExisting": false,
+    "populateEmptyFiles": true,
+
+    "templates": [
+      {
+        "name": "Git ignore",
+        "source": "build/templates/gitignore.template",
+        "destination": ".gitignore"
+      },
+
+      {
+        "name": "VS Code settings",
+        "source": "build/templates/vscode/settings.json",
+        "destination": ".vscode/settings.json"
+      },
+      {
+        "name": "VS Code tasks",
+        "source": "build/templates/vscode/tasks.json",
+        "destination": ".vscode/tasks.json"
+      },
+      {
+        "name": "VS Code extensions",
+        "source": "build/templates/vscode/extensions.json",
+        "destination": ".vscode/extensions.json"
+      },
+      {
+        "name": "VS Code launch configuration",
+        "source": "build/templates/vscode/launch.json",
+        "destination": ".vscode/launch.json"
+      },
+
+      {
+        "name": "AI context",
+        "source": "build/templates/ai/AI_CONTEXT.md",
+        "destination": "ai/shared/AI_CONTEXT.md"
+      },
+      {
+        "name": "Project context",
+        "source": "build/templates/ai/PROJECT_CONTEXT.md",
+        "destination": "ai/shared/PROJECT_CONTEXT.md"
+      },
+      {
+        "name": "Naming conventions",
+        "source": "build/templates/ai/NAMING_CONVENTIONS.md",
+        "destination": "ai/shared/NAMING_CONVENTIONS.md"
+      },
+      {
+        "name": "Writing standards",
+        "source": "build/templates/ai/WRITING_STANDARDS.md",
+        "destination": "ai/shared/WRITING_STANDARDS.md"
+      },
+
+      {
+        "name": "HIEP PowerShell module manifest",
+        "source": "build/templates/powershell/HIEP.Tools.psd1",
+        "destination": "src/HIEP.Tools/HIEP.Tools.psd1"
+      },
+      {
+        "name": "HIEP PowerShell module",
+        "source": "build/templates/powershell/HIEP.Tools.psm1",
+        "destination": "src/HIEP.Tools/HIEP.Tools.psm1"
+      },
+
+      {
+        "name": "Architecture principles",
+        "source": "build/templates/standards/Architecture-Principles.md",
+        "destination": "standards/Architecture-Principles.md"
+      },
+      {
+        "name": "Document lifecycle",
+        "source": "build/templates/standards/Document-Lifecycle.md",
+        "destination": "standards/Document-Lifecycle.md"
+      },
+      {
+        "name": "Markdown standards",
+        "source": "build/templates/standards/Markdown-Standards.md",
+        "destination": "standards/Markdown-Standards.md"
+      },
+      {
+        "name": "Mermaid standards",
+        "source": "build/templates/standards/Mermaid-Standards.md",
+        "destination": "standards/Mermaid-Standards.md"
+      },
+      {
+        "name": "PowerShell standards",
+        "source": "build/templates/standards/PowerShell-Standards.md",
+        "destination": "standards/PowerShell-Standards.md"
+      }
     ]
   },
 

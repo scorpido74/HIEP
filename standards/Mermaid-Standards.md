@@ -2,12 +2,18 @@
 
 ## Purpose
 
-This standard defines conventions for Mermaid diagrams in HIEP.
+This standard defines conventions for Mermaid diagrams in HIEP documentation.
+
+It applies to Mermaid diagrams stored as reusable diagram source and Mermaid
+diagrams embedded directly in managed HIEP documents.
+
+General Markdown conventions are defined in
+`standards/Markdown-Standards.md`.
 
 ## Preferred Use
 
-Mermaid is the preferred diagram-as-code format for diagrams that can be represented
-clearly in text.
+Mermaid is the preferred diagram-as-code format for diagrams that can be
+represented clearly in text.
 
 Typical uses include:
 
@@ -18,21 +24,22 @@ Typical uses include:
 - process flows;
 - integration flows.
 
+Use Mermaid when a text-based diagram provides sufficient clarity and can be
+maintained effectively in Git.
+
+Complex diagrams may use Draw.io when Mermaid does not provide sufficient
+clarity.
+
 ## Source
 
 Store reusable Mermaid source under:
 
 `diagrams/mermaid/`
 
-Diagrams may also be embedded directly in Markdown where the diagram belongs to a
-specific document.
+Diagrams may also be embedded directly in Markdown when the diagram belongs to
+a specific document.
 
-## Direction
-
-Choose diagram direction based on readability.
-
-For architecture diagrams, left-to-right is generally preferred where it reflects the
-flow naturally.
+Embedded Mermaid diagrams must use a fenced `mermaid` code block.
 
 Example:
 
@@ -44,240 +51,202 @@ flowchart LR
 
     User --> IdP
     IdP --> App
+```
 
-    Node Identifiers
+## Direction
 
-Use short, stable identifiers.
+Choose diagram direction based on readability and the purpose of the diagram.
+
+For architecture and integration diagrams, left-to-right is generally
+preferred where it reflects the flow naturally.
+
+Example:
+
+```mermaid
+flowchart LR
+    User["Healthcare Professional"]
+    IdP["Identity Provider"]
+    App["Healthcare Application"]
+
+    User --> IdP
+    IdP --> App
+```
+
+Top-to-bottom may be used when it communicates the structure or process more
+clearly.
+
+Example:
+
+```mermaid
+flowchart TD
+    Request["Request"]
+    Validation["Validation"]
+    Decision["Decision"]
+
+    Request --> Validation
+    Validation --> Decision
+```
+
+## Node Identifiers
+
+Use short, stable and meaningful Mermaid node identifiers.
 
 Prefer:
 
+```text
+User
 IdP
 EHR
 PAM
-User
+API
+```
 
 Avoid meaningless identifiers such as:
 
+```text
 A1
 X37
 Node999
+```
 
 unless the diagram itself requires them.
 
-Labels
+Node identifiers are implementation details of the Mermaid source and should
+remain understandable to someone maintaining the diagram.
 
-Labels should describe the actual component or actor.
+## Labels
+
+Labels should describe the actual component, actor, capability or process.
+
+Example:
+
+```mermaid
+flowchart LR
+    User["Healthcare Professional"]
+    IdP["Identity Provider"]
+
+    User --> IdP
+```
 
 Avoid excessive text inside diagram nodes.
 
 Move detailed explanation into the surrounding document.
 
-Flows
+## Flows
 
-Label important flows where the protocol or action matters.
+Label important flows where the protocol, action or relationship matters.
 
 Example:
 
-Trust Boundaries
+```mermaid
+flowchart LR
+    User["Healthcare Professional"]
+    IdP["Identity Provider"]
+    App["Healthcare Application"]
 
-Represent trust boundaries when they are relevant to the architecture or security
-discussion.
+    User -->|"Authentication"| IdP
+    IdP -->|"OIDC"| App
+```
 
-Explain the meaning of those boundaries in the accompanying text.
+Do not label every connection when the meaning is already clear from the
+diagram and surrounding text.
 
-Vendor Neutrality
+## Sequence Diagrams
+
+Use sequence diagrams when message order or interaction between actors is
+important.
+
+Example:
+
+```mermaid
+sequenceDiagram
+    participant User as Healthcare Professional
+    participant IdP as Identity Provider
+    participant App as Healthcare Application
+
+    User->>IdP: Authenticate
+    IdP-->>User: Authentication result
+    User->>App: Access application
+```
+
+Keep message descriptions concise.
+
+Detailed protocol behavior should be explained in the accompanying document
+where necessary.
+
+## Trust Boundaries
+
+Represent trust boundaries when they are relevant to the architecture or
+security discussion.
+
+The meaning of a trust boundary must be explained in the accompanying text.
+
+Do not rely solely on visual styling to communicate security-relevant meaning.
+
+Security diagrams should make relevant actors, systems and trust relationships
+explicit.
+
+## Vendor Neutrality
 
 Use logical capability names in vendor-neutral architecture diagrams.
 
-Use product names when the diagram is intentionally a physical or vendor-specific
-architecture.
+Examples include:
 
-Complexity
+```text
+Identity Provider
+Privileged Access Management
+Healthcare Application
+Directory Service
+API Gateway
+```
 
-Prefer multiple understandable diagrams over one diagram containing every possible
-relationship.
+Use product or vendor names when the diagram is intentionally describing a
+physical, implementation-specific or vendor-specific architecture.
+
+The purpose of the diagram should make this distinction clear.
+
+## Complexity
 
 A diagram should communicate a specific idea.
 
-Styling
+Prefer multiple understandable diagrams over one diagram containing every
+possible component and relationship.
+
+If a diagram requires extensive explanation merely to understand its visual
+structure, consider splitting it into multiple diagrams.
+
+## Styling
 
 Avoid unnecessary custom styling.
 
-The diagram should remain readable in different renderers and themes.
+Diagrams should remain readable in:
 
-Validation
+- light themes;
+- dark themes;
+- common Git-based repository renderers;
+- supported Markdown editors.
 
-Mermaid diagrams should be rendered or otherwise validated before an Approved
-document is published.
+Do not depend on specific colors as the only way to communicate meaning.
 
-Syntax validity alone does not guarantee architectural correctness.
+Prefer structural clarity, labels and surrounding explanation.
 
+## Accessibility
 
-## 16. `build/templates/standards/PowerShell-Standards.md`
+Important meaning should not depend solely on visual presentation.
 
-```markdown
-# HIEP PowerShell Standards
+Provide sufficient surrounding text so that the purpose and important
+conclusions of the diagram can be understood without relying exclusively on
+color, position or styling.
 
-## Purpose
+## Markdown Integration
 
-This standard defines PowerShell development conventions for HIEP.
+Embedded Mermaid diagrams must follow the fenced-code conventions defined in
+`standards/Markdown-Standards.md`.
 
-## Version
+Example:
 
-HIEP automation targets:
-
-**PowerShell 7.4 or later**
-
-Scripts may declare:
-
-```powershell
-#Requires -Version 7.4
-Strict Mode
-
-HIEP scripts should normally use:
-
-Set-StrictMode -Version Latest
-$ErrorActionPreference = 'Stop'
-Naming
-
-Use approved PowerShell verbs.
-
-Use PascalCase.
-
-HIEP-specific functions should normally include HIEP in the noun.
-
-Examples:
-
-Get-HIEPConfiguration
-Test-HIEPConfiguration
-Initialize-HIEPContent
-Parameters
-
-Use descriptive parameter names.
-
-Prefer:
-
-$RepositoryRoot
-$ConfigurationPath
-$DestinationPath
-
-Avoid:
-
-$rr
-$cp
-$dp
-
-unless the abbreviation is universally clear in the immediate context.
-
-Paths
-
-Use PowerShell and .NET path functions rather than manually concatenating paths.
-
-Prefer:
-
-Join-Path
-Resolve-Path
-[System.IO.Path]::GetFullPath()
-
-Repository automation should validate that configured relative paths cannot escape the
-repository root.
-
-Files
-
-Do not overwrite existing user-managed content by default.
-
-Destructive or replacement operations should require explicit intent.
-
-Error Handling
-
-Fail clearly when an operation cannot safely continue.
-
-Use exceptions for conditions that make the requested operation invalid.
-
-Do not silently suppress errors without a documented reason.
-
-Logging
-
-Operational scripts should provide useful status information.
-
-Distinguish where practical between:
-
-information;
-success;
-warning;
-error.
-
-Do not expose secrets in logs.
-
-Idempotency
-
-Bootstrap and configuration scripts should be idempotent where practical.
-
-Running the same script repeatedly with the same configuration should converge on the
-same desired state without unnecessary changes.
-
-Configuration
-
-Prefer declarative configuration over hardcoded project-specific values.
-
-For HIEP bootstrap operations, build/config/HIEP.json is the primary configuration
-source.
-
-Functions
-
-Functions should have one clear responsibility.
-
-Split complex logic into testable functions rather than building monolithic scripts.
-
-Modules
-
-Reusable PowerShell functionality belongs in:
-
-src/HIEP.Tools/
-
-Public functions belong in:
-
-src/HIEP.Tools/Public/
-
-Private helper functions belong in:
-
-src/HIEP.Tools/Private/
-
-Security
-
-Never commit:
-
-passwords;
-API keys;
-tokens;
-private keys;
-production credentials.
-
-Use appropriate secret-management mechanisms instead.
-
-Testing
-
-Reusable PowerShell functions should be testable with Pester where practical.
-
-Tests belong under:
-
-tests/
-
-Formatting
-
-Use consistent formatting throughout the repository.
-
-Readability is more important than minimizing line count.
-
-Comments
-
-Comments should explain intent, assumptions or non-obvious behavior.
-
-Avoid comments that merely repeat what the code already says.
-
-Compatibility
-
-Do not add Windows PowerShell 5.1 compatibility constraints unless HIEP has a defined
-requirement for them.
-
-HIEP's default PowerShell runtime is PowerShell 7.4 or later.
+````text
+```mermaid
+flowchart LR
+    A["Source"] --> B["Destination"]
+```

@@ -1,0 +1,209 @@
+{
+  "repository": {
+    "name": "HIEP",
+    "title": "Healthcare Identity Eco Platform",
+    "description": "Healthcare Identity knowledge platform powered by Infinigate",
+    "owner": "Infinigate Nederland",
+    "version": "0.1.0",
+    "defaultBranch": "main",
+    "license": "MIT",
+    "visibility": "private"
+  },
+
+  "filesystem": {
+    "folders": [
+      ".github",
+      ".github/ISSUE_TEMPLATE",
+      ".github/workflows",
+
+      ".vscode",
+
+      "ai",
+      "ai/shared",
+      "ai/chatgpt",
+      "ai/claude",
+      "ai/copilot",
+      "ai/cursor",
+      "ai/prompts",
+
+      "assets",
+      "assets/images",
+      "assets/icons",
+      "assets/logos",
+
+      "build",
+      "build/config",
+      "build/modules",
+
+      "diagrams",
+      "diagrams/drawio",
+      "diagrams/mermaid",
+      "diagrams/logical",
+      "diagrams/physical",
+      "diagrams/sequence",
+      "diagrams/deployment",
+
+      "docs",
+      "docs/00-reference",
+      "docs/01-business",
+      "docs/02-architecture",
+      "docs/03-security",
+      "docs/04-vendors",
+      "docs/05-integrations",
+      "docs/06-demo-platform",
+      "docs/07-workshops",
+      "docs/08-marketing",
+      "docs/09-governance",
+      "docs/10-roadmap",
+      "docs/glossary",
+
+      "mcp",
+      "mcp/context",
+      "mcp/prompts",
+      "mcp/schemas",
+      "mcp/servers",
+
+      "presentations",
+
+      "scripts",
+
+      "src",
+      "src/HIEP.Tools",
+      "src/HIEP.Tools/Public",
+      "src/HIEP.Tools/Private",
+
+      "standards",
+
+      "templates",
+      "templates/documents",
+      "templates/vendors",
+      "templates/diagrams",
+      "templates/workshops",
+
+      "tests",
+
+      "workshops"
+    ],
+
+    "files": [
+      "README.md",
+      "CHANGELOG.md",
+      "ROADMAP.md",
+      "CONTRIBUTING.md",
+      "CODE_OF_CONDUCT.md",
+      "LICENSE",
+      ".gitignore",
+
+      ".github/PULL_REQUEST_TEMPLATE.md",
+
+      ".vscode/settings.json",
+      ".vscode/tasks.json",
+      ".vscode/extensions.json",
+      ".vscode/launch.json",
+
+      "build/Initialize-HIEP.ps1",
+      "build/Initialize-GitHub.ps1",
+
+      "src/HIEP.Tools/HIEP.Tools.psd1",
+      "src/HIEP.Tools/HIEP.Tools.psm1",
+
+      "docs/00-reference/HIEP-PROJECT-CHARTER.md",
+      "docs/00-reference/HIEP-ERD-001.md",
+
+      "docs/01-business/HIEP-BUS-001.md",
+
+      "docs/02-architecture/HIEP-ARC-001.md",
+
+      "docs/03-security/HIEP-SEC-001.md",
+
+      "docs/04-vendors/HIEP-VND-001.md",
+
+      "docs/glossary/HIEP-GLS-001.md",
+
+      "docs/09-governance/HIEP-GOV-001.md",
+
+      "ai/shared/AI_CONTEXT.md",
+      "ai/shared/PROJECT_CONTEXT.md",
+      "ai/shared/NAMING_CONVENTIONS.md",
+      "ai/shared/WRITING_STANDARDS.md",
+
+      "standards/Architecture-Principles.md",
+      "standards/Document-Lifecycle.md",
+      "standards/Markdown-Standards.md",
+      "standards/Mermaid-Standards.md",
+      "standards/PowerShell-Standards.md"
+    ]
+  },
+
+  "documentation": {
+    "format": "markdown",
+    "diagramFormat": "mermaid",
+    "documentPrefix": "HIEP",
+    "numbering": true,
+    "docsAsCode": true
+  },
+
+  "github": {
+    "repository": {
+      "visibility": "private",
+      "defaultBranch": "main"
+    },
+
+    "project": {
+      "name": "Healthcare Identity Eco Platform"
+    },
+
+    "labels": [],
+
+    "milestones": [],
+
+    "issues": []
+  },
+
+  "vscode": {
+    "extensions": [
+      "ms-vscode.powershell",
+      "eamodio.gitlens",
+      "yzhang.markdown-all-in-one",
+      "bierner.markdown-mermaid",
+      "hediet.vscode-drawio"
+    ],
+
+    "settings": {},
+
+    "tasks": []
+  },
+
+  "ai": {
+    "supported": [
+      "ChatGPT",
+      "Claude",
+      "GitHub Copilot",
+      "Cursor"
+    ],
+
+    "sharedContext": [
+      "ai/shared/AI_CONTEXT.md",
+      "ai/shared/PROJECT_CONTEXT.md",
+      "ai/shared/NAMING_CONVENTIONS.md",
+      "ai/shared/WRITING_STANDARDS.md"
+    ]
+  },
+
+  "mcp": {
+    "enabled": false,
+
+    "servers": [],
+
+    "resources": []
+  },
+
+  "standards": {
+    "markdown": true,
+    "mermaid": true,
+    "powershell": true,
+    "docsAsCode": true,
+    "semanticVersioning": true,
+    "conventionalCommits": true
+  }
+}

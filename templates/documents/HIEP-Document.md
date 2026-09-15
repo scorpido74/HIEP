@@ -33,10 +33,6 @@ Provide the background, assumptions, dependencies, or other context required to 
 
 Provide the primary content of the document.
 
-## Decisions
-
-Record significant decisions made in or resulting from this document.
-
 ## References
 
 List relevant HIEP documents, standards, vendor documentation, external sources, or other references.

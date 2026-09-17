@@ -12,7 +12,8 @@
     PowerShellVersion = '7.4'
 
     FunctionsToExport = @(
-        'Get-HIEPDocumentMetadata'
+        'Get-HIEPDocumentMetadata',
+        'Get-HIEPDocumentId'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

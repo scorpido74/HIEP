@@ -13,15 +13,16 @@
 
     FunctionsToExport = @(
         'Get-HIEPDocumentMetadata',
-        'Get-HIEPDocumentId'
+        'Get-HIEPDocumentId',
+        'Get-HIEPProjectUpdate'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()
     AliasesToExport   = @()
 
-    PrivateData = @{
+    PrivateData       = @{
         PSData = @{
-            Tags = @(
+            Tags       = @(
                 'HIEP',
                 'Healthcare',
                 'Identity',

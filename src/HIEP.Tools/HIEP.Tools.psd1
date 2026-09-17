@@ -14,7 +14,8 @@
     FunctionsToExport = @(
         'Get-HIEPDocumentMetadata',
         'Get-HIEPDocumentId',
-        'Get-HIEPProjectUpdate'
+        'Get-HIEPProjectUpdate',
+        'Get-HIEPProjectUpdateId'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

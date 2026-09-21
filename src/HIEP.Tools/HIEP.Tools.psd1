@@ -16,7 +16,8 @@
         'Get-HIEPDocumentId',
         'Get-HIEPProjectUpdate',
         'Get-HIEPProjectUpdateId',
-        'New-HIEPProjectUpdate'
+        'New-HIEPProjectUpdate',
+        'Test-HIEPProjectUpdate'
     )
     CmdletsToExport   = @()
     VariablesToExport = @()

@@ -1,0 +1,97 @@
+# ============================================================================
+# HIEP - Healthcare Identity Eco Platform
+# Git ignore rules
+# ============================================================================
+
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Visual Studio Code
+.vscode/*.log
+.history/
+
+# PowerShell
+*.ps1xml.cache
+*.psm1.cache
+*.psd1.cache
+
+# PowerShell test results
+TestResults/
+test-results/
+*.trx
+*.coverage
+coverage.xml
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Build output
+bin/
+obj/
+dist/
+out/
+
+# Package output
+*.nupkg
+packages/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Secrets and credentials
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.crt
+
+secrets/
+credentials/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local AI tooling
+.cursor/cache/
+.cursor/logs/
+
+# MCP runtime data
+mcp/runtime/
+mcp/cache/
+
+# Generated exports
+exports/
+generated/
+
+# IDE / tooling
+.idea/
+
+# Miscellaneous
+*.orig
+*.rej

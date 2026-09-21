@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "PowerShell",
+      "request": "launch",
+      "name": "HIEP: Initialize",
+      "script": "${workspaceFolder}/build/Initialize-HIEP.ps1",
+      "args": []
+    },
+    {
+      "type": "PowerShell",
+      "request": "launch",
+      "name": "HIEP: Initialize - WhatIf",
+      "script": "${workspaceFolder}/build/Initialize-HIEP.ps1",
+      "args": [
+        "-WhatIf"
+      ]
+    }
+  ]
+}

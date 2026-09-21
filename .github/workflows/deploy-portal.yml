@@ -1,0 +1,73 @@
+name: Deploy HIEP Portal
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Validate and build portal
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Project Updates
+        shell: pwsh
+        run: |
+          Import-Module ./src/HIEP.Tools/HIEP.Tools.psd1 -Force
+
+          $isValid = Test-HIEPProjectUpdate -Path .
+
+          if (-not $isValid) {
+              throw 'HIEP Project Update validation failed.'
+          }
+
+      - name: Generate project timeline
+        shell: pwsh
+        run: |
+          Import-Module ./src/HIEP.Tools/HIEP.Tools.psd1 -Force
+
+          New-HIEPProjectTimeline `
+              -Path . `
+              -OutputPath 'portal/data/timeline.json'
+
+          if (-not (Test-Path 'portal/data/timeline.json')) {
+              throw 'Timeline generation failed.'
+          }
+
+      - name: Upload portal artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: portal
+
+  deploy:
+    name: Deploy GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "HIEP: Bootstrap",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-File",
+        "${workspaceFolder}/build/Initialize-HIEP.ps1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "HIEP: Bootstrap - WhatIf",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-File",
+        "${workspaceFolder}/build/Initialize-HIEP.ps1",
+        "-WhatIf"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "HIEP: Test",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "Invoke-Pester -Path '${workspaceFolder}/tests'"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

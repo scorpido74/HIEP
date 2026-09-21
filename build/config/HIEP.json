@@ -1,0 +1,293 @@
+{
+  "repository": {
+    "name": "HIEP",
+    "title": "Healthcare Identity Eco Platform",
+    "description": "Healthcare Identity knowledge platform powered by Infinigate",
+    "owner": "Infinigate Nederland",
+    "version": "0.2.0",
+    "defaultBranch": "main",
+    "license": "MIT",
+    "visibility": "private"
+  },
+  "filesystem": {
+    "folders": [
+      ".github",
+      ".github/ISSUE_TEMPLATE",
+      ".github/workflows",
+      ".vscode",
+      "ai",
+      "ai/shared",
+      "ai/chatgpt",
+      "ai/claude",
+      "ai/copilot",
+      "ai/cursor",
+      "ai/prompts",
+      "assets",
+      "assets/images",
+      "assets/icons",
+      "assets/logos",
+      "build",
+      "build/config",
+      "build/modules",
+      "build/templates",
+      "build/templates/ai",
+      "build/templates/powershell",
+      "build/templates/standards",
+      "build/templates/vscode",
+      "diagrams",
+      "diagrams/drawio",
+      "diagrams/mermaid",
+      "diagrams/logical",
+      "diagrams/physical",
+      "diagrams/sequence",
+      "diagrams/deployment",
+      "docs",
+      "docs/00-reference",
+      "docs/01-business",
+      "docs/02-architecture",
+      "docs/03-security",
+      "docs/04-vendors",
+      "docs/05-integrations",
+      "docs/06-demo-platform",
+      "docs/07-workshops",
+      "docs/08-marketing",
+      "docs/09-governance",
+      "docs/10-roadmap",
+      "docs/glossary",
+      "mcp",
+      "mcp/context",
+      "mcp/prompts",
+      "mcp/schemas",
+      "mcp/servers",
+      "presentations",
+      "scripts",
+      "src",
+      "src/HIEP.Tools",
+      "src/HIEP.Tools/Public",
+      "src/HIEP.Tools/Private",
+      "standards",
+      "templates",
+      "templates/documents",
+      "templates/vendors",
+      "templates/diagrams",
+      "templates/workshops",
+      "tests",
+      "workshops"
+    ],
+    "files": [
+      "README.md",
+      "CHANGELOG.md",
+      "ROADMAP.md",
+      "CONTRIBUTING.md",
+      "CODE_OF_CONDUCT.md",
+      "LICENSE",
+      ".gitignore",
+      ".github/PULL_REQUEST_TEMPLATE.md",
+      ".vscode/settings.json",
+      ".vscode/tasks.json",
+      ".vscode/extensions.json",
+      ".vscode/launch.json",
+      "build/Initialize-HIEP.ps1",
+      "build/Initialize-GitHub.ps1",
+      "src/HIEP.Tools/HIEP.Tools.psd1",
+      "src/HIEP.Tools/HIEP.Tools.psm1",
+      "docs/00-reference/HIEP-PROJECT-CHARTER.md",
+      "docs/00-reference/HIEP-ERD-001.md",
+      "docs/01-business/HIEP-BUS-001.md",
+      "docs/02-architecture/HIEP-ARC-001.md",
+      "docs/03-security/HIEP-SEC-001.md",
+      "docs/04-vendors/HIEP-VND-001.md",
+      "docs/glossary/HIEP-GLS-001.md",
+      "docs/09-governance/HIEP-GOV-001.md",
+      "ai/shared/AI_CONTEXT.md",
+      "ai/shared/PROJECT_CONTEXT.md",
+      "ai/shared/NAMING_CONVENTIONS.md",
+      "ai/shared/WRITING_STANDARDS.md",
+      "standards/Architecture-Principles.md",
+      "standards/Document-Lifecycle.md",
+      "standards/Markdown-Standards.md",
+      "standards/Mermaid-Standards.md",
+      "standards/PowerShell-Standards.md"
+    ]
+  },
+  "content": {
+    "enabled": true,
+    "overwriteExisting": false,
+    "populateEmptyFiles": true,
+    "templates": [
+      {
+        "name": "Git ignore",
+        "source": "build/templates/gitignore.template",
+        "destination": ".gitignore"
+      },
+      {
+        "name": "VS Code settings",
+        "source": "build/templates/vscode/settings.json",
+        "destination": ".vscode/settings.json"
+      },
+      {
+        "name": "VS Code tasks",
+        "source": "build/templates/vscode/tasks.json",
+        "destination": ".vscode/tasks.json"
+      },
+      {
+        "name": "VS Code extensions",
+        "source": "build/templates/vscode/extensions.json",
+        "destination": ".vscode/extensions.json"
+      },
+      {
+        "name": "VS Code launch configuration",
+        "source": "build/templates/vscode/launch.json",
+        "destination": ".vscode/launch.json"
+      },
+      {
+        "name": "AI context",
+        "source": "build/templates/ai/AI_CONTEXT.md",
+        "destination": "ai/shared/AI_CONTEXT.md"
+      },
+      {
+        "name": "Project context",
+        "source": "build/templates/ai/PROJECT_CONTEXT.md",
+        "destination": "ai/shared/PROJECT_CONTEXT.md"
+      },
+      {
+        "name": "Naming conventions",
+        "source": "build/templates/ai/NAMING_CONVENTIONS.md",
+        "destination": "ai/shared/NAMING_CONVENTIONS.md"
+      },
+      {
+        "name": "Writing standards",
+        "source": "build/templates/ai/WRITING_STANDARDS.md",
+        "destination": "ai/shared/WRITING_STANDARDS.md"
+      },
+      {
+        "name": "HIEP PowerShell module manifest",
+        "source": "build/templates/powershell/HIEP.Tools.psd1",
+        "destination": "src/HIEP.Tools/HIEP.Tools.psd1"
+      },
+      {
+        "name": "HIEP PowerShell module",
+        "source": "build/templates/powershell/HIEP.Tools.psm1",
+        "destination": "src/HIEP.Tools/HIEP.Tools.psm1"
+      },
+      {
+        "name": "Architecture principles",
+        "source": "build/templates/standards/Architecture-Principles.md",
+        "destination": "standards/Architecture-Principles.md"
+      },
+      {
+        "name": "Document lifecycle",
+        "source": "build/templates/standards/Document-Lifecycle.md",
+        "destination": "standards/Document-Lifecycle.md"
+      },
+      {
+        "name": "Markdown standards",
+        "source": "build/templates/standards/Markdown-Standards.md",
+        "destination": "standards/Markdown-Standards.md"
+      },
+      {
+        "name": "Mermaid standards",
+        "source": "build/templates/standards/Mermaid-Standards.md",
+        "destination": "standards/Mermaid-Standards.md"
+      },
+      {
+        "name": "PowerShell standards",
+        "source": "build/templates/standards/PowerShell-Standards.md",
+        "destination": "standards/PowerShell-Standards.md"
+      }
+    ]
+  },
+  "documentation": {
+    "format": "markdown",
+    "diagramFormat": "mermaid",
+    "documentPrefix": "HIEP",
+    "numbering": true,
+    "docsAsCode": true,
+    "templateRoot": "templates/documents",
+    "defaultVersion": "0.1.0",
+    "defaultStatus": "Draft",
+    "defaultClassification": "Internal",
+    "documentTypes": {
+      "BUS": {
+        "name": "Business",
+        "path": "docs/01-business",
+        "template": "HIEP-BUS.md"
+      },
+      "ARC": {
+        "name": "Architecture",
+        "path": "docs/02-architecture",
+        "template": "HIEP-ARC.md"
+      },
+      "SEC": {
+        "name": "Security",
+        "path": "docs/03-security",
+        "template": "HIEP-SEC.md"
+      },
+      "VND": {
+        "name": "Vendor",
+        "path": "docs/04-vendors",
+        "template": "HIEP-VND.md"
+      },
+      "GOV": {
+        "name": "Governance",
+        "path": "docs/09-governance",
+        "template": "HIEP-GOV.md"
+      },
+      "GLS": {
+        "name": "Glossary",
+        "path": "docs/glossary",
+        "template": "HIEP-GLS.md"
+      }
+    }
+  },
+  "github": {
+    "repository": {
+      "visibility": "private",
+      "defaultBranch": "main"
+    },
+    "project": {
+      "name": "Healthcare Identity Eco Platform"
+    },
+    "labels": [],
+    "milestones": [],
+    "issues": []
+  },
+  "vscode": {
+    "extensions": [
+      "ms-vscode.powershell",
+      "eamodio.gitlens",
+      "yzhang.markdown-all-in-one",
+      "bierner.markdown-mermaid",
+      "hediet.vscode-drawio"
+    ],
+    "settings": {},
+    "tasks": []
+  },
+  "ai": {
+    "supported": [
+      "ChatGPT",
+      "Claude",
+      "GitHub Copilot",
+      "Cursor"
+    ],
+    "sharedContext": [
+      "ai/shared/AI_CONTEXT.md",
+      "ai/shared/PROJECT_CONTEXT.md",
+      "ai/shared/NAMING_CONVENTIONS.md",
+      "ai/shared/WRITING_STANDARDS.md"
+    ]
+  },
+  "mcp": {
+    "enabled": false,
+    "servers": [],
+    "resources": []
+  },
+  "standards": {
+    "markdown": true,
+    "mermaid": true,
+    "powershell": true,
+    "docsAsCode": true,
+    "semanticVersioning": true,
+    "conventionalCommits": true
+  }
+}

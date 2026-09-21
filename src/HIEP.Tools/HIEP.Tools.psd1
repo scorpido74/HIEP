@@ -17,6 +17,7 @@
         'Get-HIEPProjectUpdate',
         'Get-HIEPProjectUpdateId',
         'New-HIEPProjectUpdate',
+        'New-HIEPProjectTimeline',
         'Test-HIEPProjectUpdate'
     )
     CmdletsToExport   = @()

@@ -95,3 +95,5 @@ generated/
 # Miscellaneous
 *.orig
 *.rej
+# Generated portal data
+portal/data/timeline.json

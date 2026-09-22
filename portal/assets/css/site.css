@@ -248,6 +248,28 @@ h3 {
     color: var(--warning);
 }
 
+.section-intro {
+    max-width: 760px;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.resource-status {
+    margin: 0 0 10px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.resource-status.available {
+    color: var(--success);
+}
+
+.resource-status.development {
+    color: var(--warning);
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

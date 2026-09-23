@@ -14,7 +14,7 @@ function New-HIEPProjectTimeline {
     $repositoryRoot = Get-HIEPRepositoryRoot -Path $Path
 
     if ([string]::IsNullOrWhiteSpace($OutputPath)) {
-        $OutputPath = Join-Path $repositoryRoot 'updates\index.json'
+        $OutputPath = Join-Path $repositoryRoot 'portal\data\timeline.json'
     } elseif (-not [System.IO.Path]::IsPathRooted($OutputPath)) {
         $OutputPath = Join-Path $repositoryRoot $OutputPath
     }

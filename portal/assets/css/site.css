@@ -299,6 +299,37 @@ footer p {
     margin: 0;
 }
 
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.powered-by {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.powered-by span {
+    color: var(--text-light);
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+
+.powered-by a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.powered-by-logo {
+    display: block;
+    width: auto;
+    height: 32px;
+    max-width: 180px;
+}
+
 @media (max-width: 760px) {
     .site-header .container {
         align-items: flex-start;
@@ -328,5 +359,11 @@ footer p {
 
     .cards {
         grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
     }
 }
